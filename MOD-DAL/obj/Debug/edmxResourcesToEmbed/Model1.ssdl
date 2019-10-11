@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="modDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="PaymentDtls">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="amount" Type="float" Nullable="false" />
+    <Property Name="remarks" Type="varchar(max)" />
+    <Property Name="mentorId" Type="int" Nullable="false" />
+    <Property Name="mentorName" Type="varchar(max)" />
+    <Property Name="trainingId" Type="int" Nullable="false" />
+    <Property Name="skillName" Type="varchar(max)" />
+    <Property Name="totalAmountToMentor" Type="int" />
+    <Property Name="commision" Type="int" />
+  </EntityType>
+  <EntityType Name="SkillDtls">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar(max)" />
+    <Property Name="toc" Type="varchar(max)" />
+    <Property Name="prerequisites" Type="varchar(max)" />
+    <Property Name="fees" Type="int" />
+  </EntityType>
+  <EntityType Name="TrainingDtls">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="status" Type="varchar(max)" />
+    <Property Name="progress" Type="int" />
+    <Property Name="commisionAmount" Type="float" />
+    <Property Name="rating" Type="int" />
+    <Property Name="avaRating" Type="float" />
+    <Property Name="startDate" Type="date" />
+    <Property Name="endDate" Type="date" />
+    <Property Name="timeSlot" Type="varchar(max)" />
+    <Property Name="amountReceived" Type="float" />
+    <Property Name="userId" Type="int" Nullable="false" />
+    <Property Name="userName" Type="varchar(max)" />
+    <Property Name="mentorId" Type="int" Nullable="false" />
+    <Property Name="mentorName" Type="varchar(max)" />
+    <Property Name="skillId" Type="int" Nullable="false" />
+    <Property Name="skillname" Type="varchar(max)" />
+    <Property Name="fees" Type="float" />
+    <Property Name="requested" Type="bit" />
+    <Property Name="rejectNotify" Type="bit" />
+    <Property Name="paymentStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="UserDtls">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="userName" Type="varchar(max)" Nullable="false" />
+    <Property Name="password" Type="varchar(max)" Nullable="false" />
+    <Property Name="firstName" Type="varchar(max)" Nullable="false" />
+    <Property Name="lastName" Type="varchar(max)" Nullable="false" />
+    <Property Name="contactNumber" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="regCode" Type="varchar(max)" />
+    <Property Name="role" Type="int" Nullable="false" />
+    <Property Name="linkdinUrl" Type="varchar(max)" />
+    <Property Name="yearOfExperience" Type="numeric" Precision="2" Scale="0" />
+    <Property Name="active" Type="bit" Nullable="false" />
+    <Property Name="confirmedSignUp" Type="bit" />
+    <Property Name="resetPasswordDate" Type="datetime" />
+    <Property Name="resetPassword" Type="bit" />
+    <Property Name="pictureUrl" Type="varchar(max)" />
+    <Property Name="training" Type="varchar(max)" />
+  </EntityType>
+  <EntityContainer Name="modDBModelStoreContainer">
+    <EntitySet Name="PaymentDtls" EntityType="Self.PaymentDtls" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SkillDtls" EntityType="Self.SkillDtls" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrainingDtls" EntityType="Self.TrainingDtls" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserDtls" EntityType="Self.UserDtls" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
